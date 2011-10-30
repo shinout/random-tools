@@ -170,9 +170,6 @@ WeightedSelection.prototype.random = function(val) {
 WeightedSelection.prototype.fn = Math.random;
 
 
-module.exports = WeightedSelection;
-
-
 /**
  * XORShift
  *
