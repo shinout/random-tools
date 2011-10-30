@@ -22,7 +22,7 @@ function test() {
 
     // randomInt test
     for (var i=0; i<n; i++) {
-      var val = r.randomInt(length - 1, option);
+      var val = r.randomInt(length, 1, option);
       if (!result[val]) result[val] = 0;
       result[val]++;
     }

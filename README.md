@@ -19,6 +19,8 @@ Sample
 #### get random int ####
     var randomInt = require('random-tools').randomInt;
     var a = randomInt(3); // one of [0, 1, 2, 3] in the same probability
+    var a = randomInt(3, 1); // one of [1, 2, 3] in the same probability
+    var a = randomInt(100, 96); // one of [96, 97, 98, 99, 100] in the same probability
 
 
 #### get random number from a normal distribution ####
@@ -64,6 +66,6 @@ Sample
 
 
 #### use XORShift internally for each random method ####
-    var a = randomInt(3, "xorshift"); // one of [0, 1, 2, 3] using XORShift algorithm
+    var a = randomInt(3, 0, "xorshift"); // one of [0, 1, 2, 3] using XORShift algorithm
     var b = normalRandom(40, 10, "xorshift"); // N(40, 10) using XORShift algorithm
     var c = new WeightedSelection({a: 1, b: 3}, "xorshift"); // using XORShift algorithm

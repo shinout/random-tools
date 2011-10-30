@@ -47,8 +47,9 @@ function normalRandom(mean, dev, fn) {
 /**
  * randomInt
  *
- * get random integer range from 0 to N
- * @param (number) N
+ * get random integer range from min to max
+ * @param (number) max : default 1
+ * @param (number) min : default 0
  * @param (function) fn: random function generating 0 to 1 at random, optional.
  *                       default: Math.random
  *        (string)   fn: random function name, you can use one of ["xorshift"]
@@ -56,10 +57,14 @@ function normalRandom(mean, dev, fn) {
  * @return number
  *
  */
-function randomInt(N, fn) {
-  N = (typeof N != "number") ? 2 : N + 1;
+function randomInt(max, min, fn) {
+  max = (typeof max != "number") ? 1 : parseInt(max);
+  min = (typeof min != "number") ? 0 : parseInt(min);
   fn = getUniform(fn);
-  return Math.floor(fn() * N);
+  if (max <= min) throw new Error("max " + max + " must be larger than min " + min);
+  //console.assert(max > min);
+  var range = max - min + 1;
+  return Math.floor(fn() * range) + min;
 }
 
 
