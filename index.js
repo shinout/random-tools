@@ -82,6 +82,47 @@ function randomInt(max, min, fn) {
 
 
 /**
+ * combination 
+ *
+ * get random combination (M from N)
+ * @param (number) val : array or N (total number)
+ * @param (number) M   : number to select
+ * @param (function) fn: random function generating 0 to 1 at random, optional.
+ *                       default: Math.random
+ *        (string)   fn: random function name, you can use one of ["xorshift"]
+ *                       
+ * @return number
+ *
+ */
+function combination(val, M, fn) {
+  var valIsArray = Array.isArray(val);
+  var N = (valIsArray) ? val.length : parseInt(val);
+  M = parseInt(M);
+  if (isNaN(N)) throw new Error("first argument must be a number");
+  if (isNaN(M)) throw new Error("second argument must be a number");
+  if (N < M) throw new Error("N must be larger than (or equal to) M");
+
+  var T, J;
+
+  var resultHash = {};
+
+  for (J=N-M+1; J<=N; J++) {
+    T = randomInt(J, 1, fn);
+    resultHash[resultHash[T] ? J : T] = true;
+  }
+
+  if (valIsArray) {
+    return val.filter(function(v, k) {
+      return resultHash[k+1];
+    });
+  }
+  else {
+    return Object.keys(resultHash);
+  }
+}
+
+
+/**
  * WeightedSelection
  *
  * author : shinout <shinout310@gmail.com>
@@ -228,5 +269,6 @@ module.exports = {
   xorshift          : xorshift,
   randomInt         : randomInt,
   onoff             : onoff,
+  combination       : combination,
   WeightedSelection : WeightedSelection
 };

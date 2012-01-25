@@ -69,11 +69,20 @@ function test() {
 
     var onoffCount = 0;
     for (var i=0; i<N; i++) {
-      if (r.onoff(0.3))  {
+      if (r.onoff(0.3, option))  {
         onoffCount++;
       }
     }
     console.log(onoffCount / N);
+
+    var combiCount = 0;
+    var arr = "abcde".split("");
+    for (var i=0; i<N; i++) {
+      if (r.combination(arr, 2, option).join("") == "bd")  {
+        combiCount++;
+      }
+    }
+    console.log(combiCount/ N);
 
   });
 }
