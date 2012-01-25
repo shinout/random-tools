@@ -66,7 +66,16 @@ function test() {
     }
     console.log(count / N);
     console.log(chrs['chr1'] / sel.hists[sel.hists.length -1]);
+
+    var onoffCount = 0;
+    for (var i=0; i<N; i++) {
+      if (r.onoff(0.3))  {
+        onoffCount++;
+      }
+    }
+    console.log(onoffCount / N);
+
   });
 }
 
-if (process.argv[1] === __filename) { test(); }
+test();

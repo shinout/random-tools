@@ -43,6 +43,19 @@ function normalRandom(mean, dev, fn) {
   }
 }
 
+/**
+ * onoff
+ *
+ * get true or false
+ *
+ */
+function onoff(rate, fn) {
+  fn = getUniform(fn);
+  if (rate == undefined) rate = 0.5;
+  return ( fn() >= 1- rate);
+}
+
+
 
 /**
  * randomInt
@@ -214,5 +227,6 @@ module.exports = {
   XORShift          : XORShift,
   xorshift          : xorshift,
   randomInt         : randomInt,
+  onoff             : onoff,
   WeightedSelection : WeightedSelection
 };
