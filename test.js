@@ -34,7 +34,14 @@ function test() {
     }, 0) / length);
 
     console.log("stddev", dev)
+    
+    // random int 0 to 0
+    var zero_sel = r.randomInt(0);
+    console.assert(zero_sel === 0);
 
+    // random int 100 to 100
+    var hundred_sel = r.randomInt(100, 100);
+    console.assert(hundred_sel=== 100);
 
     // WeightedSelection test
     var sel = new r.WeightedSelection(chrs, option);

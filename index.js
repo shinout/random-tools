@@ -74,7 +74,7 @@ function randomInt(max, min, fn) {
   max = (typeof max != "number") ? 1 : parseInt(max);
   min = (typeof min != "number") ? 0 : parseInt(min);
   fn = getUniform(fn);
-  if (max <= min) throw new Error("max " + max + " must be larger than min " + min);
+  if (max < min) throw new Error("max " + max + " must be larger or equal to min " + min);
   //console.assert(max > min);
   var range = max - min + 1;
   return Math.floor(fn() * range) + min;
