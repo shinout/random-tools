@@ -27,6 +27,16 @@ Sample
     var normalRandom = require('random-tools').normalRandom;
     var a = normalRandom(50, 10); // get a random number from N(50, 10)
 
+#### shuffling an array ####
+
+    var arr = [1,2,3,4,5,6];
+    var shuffled = require('random-tools').shuffle(arr); // e.g. [3,1,5,6,4,2]
+    console.assert(arr === shuffled);  // destructive
+
+    var arr = [1,2,3,4,5,6];
+    var shuffled_cpy = require('random-tools').shuffle(arr, true); // e.g. [5,1,2,3,6,4]
+    console.assert(arr != shuffled_cpy);  // non-destructive
+
 
 #### weighted selection ####
     var WeightedSelection = require("random-tools").WeightedSelection;
