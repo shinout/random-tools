@@ -1,10 +1,10 @@
 { "name": "random-tools"
-, "version": "0.0.4"
+, "version": "0.0.5"
 , "main": "./index.js"
 , "engines": { "node" : "*" }  
 
 , "author": "SHIN Suzuki <shinout310@gmail.com>"
 , "description": "utility random functions"
 
-, "tags": ["random", "xorshift", "weight", "selection", "algorithm"]
+, "tags": ["random", "xorshift", "weight", "selection", "algorithm", "shuffle"]
 }

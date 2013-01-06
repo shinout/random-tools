@@ -262,6 +262,19 @@ function XORShift(seed, normalize) {
 var xorshift = XORShift(new Date().getTime(), true);
 
 
+function shuffle(arr, copy) {
+  if (copy) arr = arr.slice();
+  var i = arr.length;
+  while (i) {
+    var j = Math.floor(Math.random()*i);
+    var t = arr[--i];
+    arr[i] = arr[j];
+    arr[j] = t;
+  }
+  return arr;
+}
+
+
 module.exports = {
   getUniform        : getUniform,
   normalRandom      : normalRandom,
@@ -270,5 +283,6 @@ module.exports = {
   randomInt         : randomInt,
   onoff             : onoff,
   combination       : combination,
-  WeightedSelection : WeightedSelection
+  WeightedSelection : WeightedSelection,
+  shuffle           : shuffle
 };

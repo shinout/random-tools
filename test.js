@@ -84,6 +84,13 @@ function test() {
     }
     console.log(combiCount/ N);
 
+
+    // shuffle
+    var a = [1,2,3,4,5,6,7,8];
+    var arr_shuffled_cpy = r.shuffle(a, true);
+    var arr_shuffled     = r.shuffle(a);
+    console.assert(arr_shuffled == a);
+    console.assert(arr_shuffled_cpy != a);
   });
 }
 
